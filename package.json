@@ -1,0 +1,24 @@
+{
+  "name": "react-custom-markdown",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomasdelima/react-custom-markdown.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tomasdelima/react-custom-markdown/issues"
+  },
+  "homepage": "https://github.com/tomasdelima/react-custom-markdown#readme",
+  "dependencies": {
+    "react": "^16.1.0",
+    "react-quick-styles": "^1.0.0",
+    "react-youtube": "^7.5.0"
+  }
+}

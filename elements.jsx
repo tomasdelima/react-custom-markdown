@@ -1,12 +1,14 @@
 import React from 'react'
-import Page from '../page'
+// import Page from './page'
 import YouTube from 'react-youtube'
+import s from 'react-quick-styles'
 
 export default class Elements extends React.Component {
   constructor(props) {
     super(props)
     this.seed = Math.random()
     this.state = {}
+    Page = this.props.Page //|| Page
   }
 
   componentWillMount() {
@@ -19,7 +21,7 @@ export default class Elements extends React.Component {
 
     switch (className) {
       case 'String':
-        return <span key={i} className="string" style={[s.inlinea].merge()}>{fragment}</span>
+        return <span key={i} className="string" style={[].merge()}>{fragment}</span>
       case 'Array':
         return <span key={i} className="array" style={[s.high()].merge()}>{fragment.map((item, i) => compileFragment(item, i))}</span>
       default:
@@ -57,16 +59,14 @@ export default class Elements extends React.Component {
         }
         return <Page slug={args[0]} args={args} embedded />
       case 'argument':
-        var args = this.props.args || [...Array(Number(fragment.content)+1||0)].map((v,i)=>"Argument #"+i)
+        var args = this.props.args || [...Array(Number(fragment.content)+1||0)].map((v,i) => "Argument #"+i)
         return <span key={i} className="argument">{args[fragment.content]}</span>
       case 'image':
         var style = fragment.content[2] ? [s.maxWidth(), s.padding(10), {float: fragment.content[2]}] : [s.wide()]
         return <a href={fragment.content[5]}><img key={i} className="image" style={style.merge()} src={fragment.content[3]}/></a>
       case 'youtube':
         if (!this.state[fragment.content]) this.state[fragment.content] = {width: "100%", height: "0"}
-          console.log(fragment.content, this.seed)
         this.videos[fragment.content+this.seed] = this.videos[fragment.content+this.seed] || <YouTube ref={fragment.content} id={fragment.content} videoId={fragment.content} opts={this.state[fragment.content]} onReady={() => this.updateVideoDimensions(fragment.content+this.seed)}/>
-        // debugger
         return this.videos[fragment.content]
       case 'left':
       case 'center':
