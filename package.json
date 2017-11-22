@@ -1,6 +1,6 @@
 {
   "name": "react-custom-markdown",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "",
   "main": "build/index.js",
   "scripts": {
@@ -22,7 +22,7 @@
   "homepage": "https://github.com/tomasdelima/react-custom-markdown#readme",
   "dependencies": {
     "react": "^16.1.0",
-    "react-quick-styles": "^1.0.1",
+    "react-quick-styles": "^1.0.8",
     "react-youtube": "^7.5.0"
   },
   "devDependencies": {
