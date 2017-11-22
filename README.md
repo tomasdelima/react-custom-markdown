@@ -76,6 +76,8 @@ import CustomMarkdown from 'react-custom-markdown'
 - Align center: `[c:some text:c]` or `[center:some text:center]` or `<c:some text:c>` or `<center:some text:center>`.
 - Align right: `[r:some text:r]` or `<r:some text:r>` or `[right:some text:right]` or `<right:some text:right>`.
 - Justified: `[j:some text:j]` or `<j:some text:j>` or `[justify:some text:justify]` or `<justify:some text:justify>`.
+- Margin: `<margin:number:some text:margin>`
+- Padding: `<padding:number:some text:padding>`
 - Image: `[image:image.url/foo.jpg]` or `[image:left:image.url/foo.jpg]` or `[image:right:image.url/foo.jpg]` or `[image:image.url/foo.jpg:url.on.click.com]` or `[image:left:image.url/foo.jpg:url.on.click.com]` or `[image:right:image.url/foo.jpg:url.on.click.com]`.
 - URL: `[url:your.url.com]` or `[url:some text:your.url.com]`.
 - YouTube: `[youtube:video-id]`.
