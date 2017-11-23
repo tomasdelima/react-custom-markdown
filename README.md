@@ -2,6 +2,8 @@
 
 A React component that allows flexible, customizable and scaleable text compiling. This component is inspired on the original concept of the Markdown language, though different in specific rules.
 
+Comes with an editor to help with editing.
+
 ## Installation
 
     $ npm install react-custom-markdown --save
@@ -13,9 +15,13 @@ A React component that allows flexible, customizable and scaleable text compilin
 Before using this lib, it is needed to understand it's core concept. The goal is to transform a string into the desired HTML code. For such, it is needed a set of rules and a rendering function. This library comes with a many rules (`lib/rules.js`) and a rendering method for each (`lib/elements.js`) from which new ones can be derived.
 
 ```javascript
-<CustomMarkdown customRules={...} customElementsRenderer={...}>
+<Markdown customRules={...} customElementsRenderer={...}>
   ...
-</CustomMarkdown>
+</Markdown>
+```
+
+```javascript
+<Editor body={...} changed={...} onSave={...} onChange={...}/>
 ```
 
 ### Creating your own rules and elements
@@ -41,9 +47,9 @@ var customELementsRenderer = function (fragment, props) {
 The outcome would be:
 
 ```javascript
-<CustomMarkdown customRules={customRules} customElementsRenderer={customElementsRenderer}>
+<Markdown customRules={customRules} customElementsRenderer={customElementsRenderer}>
   some text
-</CustomMarkdown>
+</Markdown>
 ```
 
 **Note**: depending on you are writing React code, it may be needed to use `customElementsRenderer={customElementsRenderer.bind(this)}`
@@ -55,9 +61,9 @@ If the given child string does not match any of the given or predefined rules, i
 The code bellow uses some of the predefined rules and elements in this lib:
 
 ```javascript
-import CustomMarkdown from 'react-custom-markdown'
+import Markdown from 'react-custom-markdown'
 
-<CustomMarkdown customElementsRenderer={...} customRules={...}>
+<Markdown customElementsRenderer={...} customRules={...}>
   [left:this is left:left]
   [right:this is right:right]
   [justify:this is justified:justify]
@@ -65,8 +71,13 @@ import CustomMarkdown from 'react-custom-markdown'
   this is an image: [image:https://i.ytimg.com/vi/6KQPhoCICcs/maxresdefault.jpg]
   this is url 1: [url:https://i.ytimg.com/vi/6KQPhoCICcs/maxresdefault.jpg]
   [url:this is url 2:https://i.ytimg.com/vi/6KQPhoCICcs/maxresdefault.jpg]
-</CustomMarkdown>
+</Markdown>
 ```
+
+```javascript
+<Editor body={this.state.body} changed={this.state.bodyIsChanged} onSave={this.save} onChange={this.onChange}/>
+```
+
 
 ## List of predefined rules and elements
 
